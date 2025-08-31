@@ -39,6 +39,9 @@
     "registry": "https://registry.npmjs.org/",
     "tag": "latest"
   },
+  "release": {
+    "branches": ["main"]
+  },
   "dependencies": {
     "@azure/msal-node": "^2.1.0",
     "@modelcontextprotocol/sdk": "^1.8.0",
