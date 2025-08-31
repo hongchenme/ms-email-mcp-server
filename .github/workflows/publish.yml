@@ -104,12 +104,4 @@ jobs:
         run: |
           npm config set //registry.npmjs.org/:_authToken $NODE_AUTH_TOKEN
           npm publish --access public
-
-# Allow manual triggering
-on:
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version type (patch, minor, major)'
-        required: false
-        default: 'patch'
+          
