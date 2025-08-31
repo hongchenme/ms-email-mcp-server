@@ -1,6 +1,6 @@
 # 🛡️ safe-email-mcp-server
 
-[![npm version](https://img.shields.io/npm/v/@hongchenme/safe-email-mcp-server.svg)](https://www.npmjs.com/package/@hongchenme/safe-email-mcp-server) [![build status](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml/badge.svg)](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/softeria/ms-365-mcp-server/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@hongchenme/safe-email-mcp-server.svg)](https://www.npmjs.com/package/@hongchenme/safe-email-mcp-server) [![build status](https://github.com/hongchenme/ms-email-mcp-server/actions/workflows/publish.yml/badge.svg)](https://github.com/hongchenme/ms-email-mcp-server/actions/workflows/publish.yml) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hongchenme/ms-email-mcp-server/blob/main/LICENSE)
 
 **Safe Email MCP Server** - Microsoft 365 Email, Contacts & User Profile Management
 

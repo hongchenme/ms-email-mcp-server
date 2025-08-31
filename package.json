@@ -72,13 +72,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/softeria/ms-365-mcp-server.git"
+    "url": "git+https://github.com/hongchenme/ms-email-mcp-server.git"
   },
   "directories": {
     "test": "test"
   },
   "bugs": {
-    "url": "https://github.com/softeria/ms-365-mcp-server/issues"
+    "url": "https://github.com/hongchenme/ms-email-mcp-server/issues"
   },
-  "homepage": "https://github.com/softeria/ms-365-mcp-server#readme"
+  "homepage": "https://github.com/hongchenme/ms-email-mcp-server#readme"
 }
