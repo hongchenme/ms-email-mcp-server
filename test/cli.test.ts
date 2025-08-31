@@ -39,7 +39,7 @@ describe('CLI Module', () => {
   describe('parseArgs', () => {
     it('should return command options', () => {
       const result = parseArgs();
-      expect(result).toEqual({ file: 'test.xlsx' });
+      expect(result).toEqual({ file: 'test.xlsx', orgMode: false });
     });
   });
 });

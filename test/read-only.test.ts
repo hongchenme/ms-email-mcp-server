@@ -79,7 +79,7 @@ describe('Read-Only Mode', () => {
     expect(toolCalls).not.toContain('delete-mail-message');
   });
 
-  it('should register all endpoints when not in read-only mode', () => {
+  it('should register safe endpoints when not in read-only mode', () => {
     vi.mocked(parseArgs).mockReturnValue({ readOnly: false } as ReturnType<typeof parseArgs>);
 
     const options = parseArgs();
@@ -87,11 +87,12 @@ describe('Read-Only Mode', () => {
 
     registerGraphTools(mockServer, {} as GraphClient, options.readOnly);
 
-    expect(mockServer.tool).toHaveBeenCalledTimes(3);
+    expect(mockServer.tool).toHaveBeenCalledTimes(2);
 
     const toolCalls = mockServer.tool.mock.calls.map((call: unknown[]) => call[0]);
     expect(toolCalls).toContain('list-mail-messages');
     expect(toolCalls).toContain('send-mail');
-    expect(toolCalls).toContain('delete-mail-message');
+    // delete-mail-message should be blocked for safety
+    expect(toolCalls).not.toContain('delete-mail-message');
   });
 });

@@ -51,33 +51,11 @@ const SCOPE_HIERARCHY: ScopeHierarchy = {
 };
 
 function buildScopesFromEndpoints(includeWorkAccountScopes: boolean = false): string[] {
-  const scopesSet = new Set<string>();
+  // Simplified scope set for email-only server - no more dynamic building from endpoints
+  const emailSafeScopes = ['Mail.ReadWrite', 'User.Read', 'Contacts.ReadWrite'];
 
-  endpoints.default.forEach((endpoint) => {
-    // Skip endpoints that only have workScopes if not in work mode
-    if (!includeWorkAccountScopes && !endpoint.scopes && endpoint.workScopes) {
-      return;
-    }
-
-    // Add regular scopes
-    if (endpoint.scopes && Array.isArray(endpoint.scopes)) {
-      endpoint.scopes.forEach((scope) => scopesSet.add(scope));
-    }
-
-    // Add workScopes if in work mode
-    if (includeWorkAccountScopes && endpoint.workScopes && Array.isArray(endpoint.workScopes)) {
-      endpoint.workScopes.forEach((scope) => scopesSet.add(scope));
-    }
-  });
-
-  Object.entries(SCOPE_HIERARCHY).forEach(([higherScope, lowerScopes]) => {
-    if (lowerScopes.every((scope) => scopesSet.has(scope))) {
-      lowerScopes.forEach((scope) => scopesSet.delete(scope));
-      scopesSet.add(higherScope);
-    }
-  });
-
-  return Array.from(scopesSet);
+  logger.info('Using hardcoded safe email scopes for security:', emailSafeScopes);
+  return emailSafeScopes;
 }
 
 interface LoginTestResult {

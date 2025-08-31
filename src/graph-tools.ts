@@ -93,10 +93,26 @@ export function registerGraphTools(
     }
   }
 
+  logger.info('🛡️  Safe Email MCP Server - blocking all deletion operations for data safety');
+
   for (const tool of api.endpoints) {
+    // SAFETY GUARD: Block any deletion operations
+    if (tool.method.toUpperCase() === 'DELETE') {
+      logger.info(`🚫 SAFETY: Blocked dangerous deletion tool ${tool.alias}`);
+      continue;
+    }
+
+    // SAFETY GUARD: Block tools with 'delete' in the name
+    if (tool.alias.toLowerCase().includes('delete')) {
+      logger.info(`🚫 SAFETY: Blocked dangerous tool ${tool.alias} (contains 'delete')`);
+      continue;
+    }
+
     const endpointConfig = endpointsData.find((e) => e.toolName === tool.alias);
-    if (!orgMode && endpointConfig && !endpointConfig.scopes && endpointConfig.workScopes) {
-      logger.info(`Skipping work account tool ${tool.alias} - not in org mode`);
+
+    // Simplified: No work mode support anymore - email-only server
+    if (endpointConfig && endpointConfig.workScopes) {
+      logger.info(`Skipping work account tool ${tool.alias} - email-only server`);
       continue;
     }
 
