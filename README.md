@@ -1,6 +1,6 @@
 # 🛡️ safe-email-mcp-server
 
-[![npm version](https://img.shields.io/npm/v/@softeria/safe-email-mcp-server.svg)](https://www.npmjs.com/package/@softeria/safe-email-mcp-server) [![build status](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml/badge.svg)](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/softeria/ms-365-mcp-server/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/@hongchenme/safe-email-mcp-server.svg)](https://www.npmjs.com/package/@hongchenme/safe-email-mcp-server) [![build status](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml/badge.svg)](https://github.com/softeria/ms-365-mcp-server/actions/workflows/build.yml) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/softeria/ms-365-mcp-server/blob/main/LICENSE)
 
 **Safe Email MCP Server** - Microsoft 365 Email, Contacts & User Profile Management
 
@@ -63,7 +63,7 @@ Edit the config file under Settings > Developer:
   "mcpServers": {
     "safe-email": {
       "command": "npx",
-      "args": ["-y", "@softeria/safe-email-mcp-server"]
+      "args": ["-y", "@hongchenme/safe-email-mcp-server"]
     }
   }
 }
@@ -72,7 +72,7 @@ Edit the config file under Settings > Developer:
 ### Claude Code CLI
 
 ```bash
-claude mcp add safe-email -- npx -y @softeria/safe-email-mcp-server
+claude mcp add safe-email -- npx -y @hongchenme/safe-email-mcp-server
 ```
 
 ### Local Development
@@ -110,7 +110,7 @@ For interactive authentication via device code:
 - **MCP client login**: Call the `login` tool, follow URL+code instructions
 - **CLI login**:
   ```bash
-  npx @softeria/safe-email-mcp-server --login
+  npx @hongchenme/safe-email-mcp-server --login
   ```
 
 Tokens are cached securely in your OS credential store.
@@ -120,7 +120,7 @@ Tokens are cached securely in your OS credential store.
 When running with `--http`, the server provides OAuth endpoints:
 
 ```bash
-npx @softeria/safe-email-mcp-server --http 3000
+npx @hongchenme/safe-email-mcp-server --http 3000
 ```
 
 ### 3. Bring Your Own Token (BYOT)
@@ -128,7 +128,7 @@ npx @softeria/safe-email-mcp-server --http 3000
 Provide an access token directly:
 
 ```bash
-MS365_MCP_OAUTH_TOKEN=your_token npx @softeria/safe-email-mcp-server
+MS365_MCP_OAUTH_TOKEN=your_token npx @hongchenme/safe-email-mcp-server
 ```
 
 ## CLI Options
@@ -239,4 +239,4 @@ npm run verify
 
 ## License
 
-MIT © 2025 Softeria
+MIT © 2025 Hong Chen
