@@ -1,11 +1,11 @@
 {
-  "name": "@softeria/ms-365-mcp-server",
+  "name": "@softeria/safe-email-mcp-server",
   "version": "0.0.0-development",
-  "description": " A Model Context Protocol (MCP) server for interacting with Microsoft 365 and Office services through the Graph API",
+  "description": "🛡️ A safe, non-destructive Model Context Protocol (MCP) server for Microsoft 365 Email, Contacts, and User Profile management - reads, creates, and moves but never deletes",
   "type": "module",
   "main": "dist/index.js",
   "bin": {
-    "ms-365-mcp-server": "dist/index.js"
+    "safe-email-mcp-server": "dist/index.js"
   },
   "scripts": {
     "generate": "node bin/generate-graph-client.mjs",
@@ -24,8 +24,13 @@
   "keywords": [
     "microsoft",
     "365",
+    "email",
+    "outlook",
+    "contacts",
     "mcp",
-    "server"
+    "server",
+    "safe",
+    "non-destructive"
   ],
   "author": "",
   "license": "MIT",

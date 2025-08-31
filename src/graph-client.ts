@@ -143,6 +143,15 @@ class GraphClient {
     options: GraphRequestOptions
   ): Promise<Response> {
     const url = `https://graph.microsoft.com/v1.0${endpoint}`;
+    const method = options.method || 'GET';
+
+    // SAFETY GUARD: Block DELETE method requests at the HTTP level
+    if (method.toUpperCase() === 'DELETE') {
+      logger.warn(`🚫 SAFETY: Blocked DELETE request to ${endpoint} for data protection`);
+      throw new Error(
+        'DELETE operations are blocked for data safety. This server never deletes emails or contacts.'
+      );
+    }
 
     const headers: Record<string, string> = {
       Authorization: `Bearer ${accessToken}`,
@@ -151,7 +160,7 @@ class GraphClient {
     };
 
     return fetch(url, {
-      method: options.method || 'GET',
+      method,
       headers,
       body: options.body,
     });
